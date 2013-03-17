@@ -5,7 +5,7 @@
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
 ;; Copyright (C) 2013, rubikitch, all rights reserved.
-;; Time-stamp: <2013-03-15 09:37:19 rubikitch>
+;; Time-stamp: <2013-03-17 09:47:38 rubikitch>
 ;; Created: 2013-03-15 08:59:37
 ;; Version: 0.1
 ;; URL: http://www.emacswiki.org/emacs/download/helm-anything.el
@@ -54,6 +54,7 @@
 ;; And the following to your ~/.emacs startup file.
 ;;
 ;; (require 'helm-anything)
+;; (helm-anything-set-keys)
 ;;
 ;; No need more.
 
@@ -63,17 +64,6 @@
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET helm-anything RET
-;;
-
-;;; Change log:
-;;	
-;; 2013/03/15
-;;      * First released.
-;; 
-
-;;; Acknowledgements:
-;;
-;; 
 ;;
 
 ;;; TODO
@@ -119,6 +109,11 @@ Called from lisp, you can specify a buffer-name as a string with PARG."
   (unless (eq (ad-get-arg 0) 'noresume)
     (setq helm-anything-resume-function (list 'anything-resume anything-last-buffer))))
 
+(defun helm-anything-set-keys ()
+  "Replace `anything-resume' and `helm-resume' with `helm-anything-resume'."
+  (interactive)
+  (global-set-key [remap anything-resume] 'helm-anything-resume)
+  (global-set-key [remap helm-resume] 'helm-anything-resume))
 
 (provide 'helm-anything)
 
