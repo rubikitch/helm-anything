@@ -5,7 +5,7 @@
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
 ;; Copyright (C) 2013, rubikitch, all rights reserved.
-;; Time-stamp: <2013-03-17 09:47:38 rubikitch>
+;; Time-stamp: <2013-03-29 13:39:09 rubikitch>
 ;; Created: 2013-03-15 08:59:37
 ;; Version: 0.1
 ;; URL: http://www.emacswiki.org/emacs/download/helm-anything.el
@@ -42,8 +42,6 @@
 ;;
 ;; * M-x `helm-anything-resume' replaces M-x `anything-resume' and M-x `helm-resume'.
 ;; 
-
-
 ;;; Installation:
 ;;
 ;; Put helm-anything.el to your load-path.
@@ -54,21 +52,10 @@
 ;; And the following to your ~/.emacs startup file.
 ;;
 ;; (require 'helm-anything)
+;; ;; Replace helm-resume and anything-resume with helm-anything-resume
 ;; (helm-anything-set-keys)
 ;;
 ;; No need more.
-
-;;; Customize:
-;;
-;; 
-;;
-;; All of the above can customize by:
-;;      M-x customize-group RET helm-anything RET
-;;
-
-;;; TODO
-;;
-;; 
 ;;
 
 ;;; Require
