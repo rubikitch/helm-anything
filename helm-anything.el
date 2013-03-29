@@ -5,7 +5,7 @@
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
 ;; Copyright (C) 2013, rubikitch, all rights reserved.
-;; Time-stamp: <2013-03-29 13:39:09 rubikitch>
+;; Time-stamp: <2013-03-29 13:41:30 rubikitch>
 ;; Created: 2013-03-15 08:59:37
 ;; Version: 0.1
 ;; URL: http://www.emacswiki.org/emacs/download/helm-anything.el
@@ -67,6 +67,7 @@
 ;;;; Resume both helm and anything buffers.
 (defvar helm-anything-resume-function nil)
 
+;;;###autoload
 (defun helm-anything-resume (parg)
   "Resurrect previously invoked `helm' or `anything'.
 Called with a prefix arg, allow choosing among all existing
