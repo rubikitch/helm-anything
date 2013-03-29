@@ -5,9 +5,10 @@
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
 ;; Copyright (C) 2013, rubikitch, all rights reserved.
-;; Time-stamp: <2013-03-29 13:41:30 rubikitch>
+;; Time-stamp: <2013-03-30 08:31:45 rubikitch>
 ;; Created: 2013-03-15 08:59:37
 ;; Version: 0.1
+;; Package-Requires: helm
 ;; URL: http://www.emacswiki.org/emacs/download/helm-anything.el
 ;; Keywords: helm, anything, convenience, search, tools
 ;; Compatibility: GNU Emacs 24.2.2
