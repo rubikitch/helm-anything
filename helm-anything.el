@@ -5,7 +5,7 @@
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
 ;; Copyright (C) 2013, rubikitch, all rights reserved.
-;; Time-stamp: <2013-12-18 11:32:24 rubikitch>
+;; Time-stamp: <2014-11-26 19:31:21 rubikitch>
 ;; Created: 2013-03-15 08:59:37
 ;; Version: 0.2
 ;; Package-Requires: ((helm "20130406") (anything "20120101"))
@@ -37,8 +37,8 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Bridge between anything and helm.
 ;;
 ;; M-x `helm-anything-resume' replaces M-x `anything-resume' and M-x
@@ -90,6 +90,9 @@
 ;;;; Resume both helm and anything buffers.
 (defvar helm-anything-resume-function nil)
 
+(defun helm-anything-buffer-names (buffers)
+  (mapcar (lambda (b) (format "%s" b)) buffers))
+
 ;;;###autoload
 (defun helm-anything-resume (parg)
   "Resurrect previously invoked `helm' or `anything'.
@@ -99,12 +102,15 @@ Called from lisp, you can specify a buffer-name as a string with PARG."
   (interactive "P")
   (cond (parg
          (setq current-prefix-arg nil)
-         (helm :sources '(((name . "Resume helm buffer")
-                           (candidates . helm-buffers)
-                           (action . helm-resume))
-                          ((name . "Resume anything buffer")
-                           (candidates . anything-buffers)
-                           (action . anything-resume)))
+         (helm :sources
+               '(((name . "Resume helm buffer")
+                  (candidates
+                   . (lambda () (helm-anything-buffer-names helm-buffers)))
+                  (action . helm-resume))
+                 ((name . "Resume anything buffer")
+                  (candidates
+                   . (lambda () (helm-anything-buffer-names anything-buffers)))
+                  (action . anything-resume)))
                :resume 'noresume
                :buffer "*helm/anything resume*"))
         ((memq (car helm-anything-resume-function) '(helm-resume anything-resume))
